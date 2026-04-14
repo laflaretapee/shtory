@@ -1,6 +1,6 @@
 import { useLeadForm } from '../hooks/useLeadForm'
 
-export function LeadFormSection({ contacts }) {
+export function LeadFormSection() {
   const { fields, errors, submitted, handleChange, handleSubmit } = useLeadForm()
 
   return (
@@ -71,19 +71,18 @@ export function LeadFormSection({ contacts }) {
           </label>
 
           <button className="button" type="submit">
-            Получить консультацию
+            Получить расчёт бесплатно
           </button>
 
           {submitted ? (
             <p className="form-success" role="status">
-              Спасибо, заявка сохранена. Перед публикацией подключим реальные контакты и
-              канал отправки, а сейчас форма готова для интеграции.
+              Спасибо! Мы свяжемся с вами в течение дня. Ждите звонка.
             </p>
           ) : null}
 
           <p className="form-note">
-            Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности. Контакты для
-            публикации добавим перед запуском: {contacts.phoneDisplay}.
+            Нажимая кнопку, вы соглашаетесь с обработкой персональных данных. Мы не
+            передаём ваши данные третьим лицам.
           </p>
         </form>
       </div>

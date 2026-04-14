@@ -817,6 +817,51 @@ button {
   outline-offset: 3px;
 }
 
+/* ── TrustBar с иконками ── */
+.trustbar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.trustbar-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(200, 169, 126, 0.18), rgba(141, 110, 99, 0.1));
+  color: var(--accent-deep);
+}
+
+/* ── Benefits CTA ── */
+.benefits-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+/* ── Reviews: звёзды и автор ── */
+.review-stars {
+  display: flex;
+  gap: 3px;
+  color: #c8a040;
+}
+
+.review-author {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+/* ── Catalog: mobile swipe ── */
+.catalog-swipe-wrapper {
+  width: 100%;
+}
+
 @media (max-width: 1180px) {
   .header-inner,
   .hero-inner,
@@ -906,9 +951,38 @@ button {
   .contacts-grid,
   .services-grid,
   .metrics-grid,
-  .catalog-grid,
   .trustbar-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Каталог — горизонтальный свайп на mobile */
+  .catalog-swipe-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    margin: 0 -16px;
+    padding: 0 16px 16px;
+    scrollbar-width: none;
+  }
+
+  .catalog-swipe-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .catalog-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    gap: 14px;
+  }
+
+  .catalog-card {
+    width: 76vw;
+    max-width: 320px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
   }
 
   .mobile-sticky-actions {

@@ -10,37 +10,36 @@ export function ContactsSection({ data, contacts }) {
 
         <div className="cards-grid contacts-grid">
           <article className="contact-card">
-            <span className="pill">Телефон</span>
-            <h3>{contacts.phoneDisplay}</h3>
-            <p>Временно используем тестовое отображение. Реальный номер подставим перед публикацией.</p>
-            <a className="button" href={contacts.phoneHref}>
-              Позвонить
+            <span className="pill">Заявка на замер</span>
+            <h3>Оставьте заявку</h3>
+            <p>Заполните форму — свяжемся в течение дня, уточним детали и согласуем удобное время выезда.</p>
+            <a className="button" href="#lead-form">
+              Оставить заявку
             </a>
           </article>
 
           <article className="contact-card">
             <span className="pill">WhatsApp</span>
-            <h3>{contacts.whatsappLabel}</h3>
-            <p>Мессенджер будет подключён после передачи реальных контактных данных.</p>
-            <a className="button button-secondary" href={contacts.whatsappHref}>
+            <h3>Напишите нам</h3>
+            <p>Удобно для быстрой связи: уточнить вопрос по замеру, ткани или стоимости.</p>
+            <a className="button button-secondary" href="#lead-form">
               Написать в WhatsApp
             </a>
           </article>
 
           <article className="contact-card">
-            <span className="pill">Telegram</span>
-            <h3>{contacts.telegramLabel}</h3>
-            <p>Подходит для быстрой связи по замеру, подбору ткани и расчёту стоимости.</p>
-            <a className="text-link" href={contacts.telegramHref}>
-              Перейти к заявке
+            <span className="pill">Консультация</span>
+            <h3>Получите консультацию</h3>
+            <p>Подберём шторы под ваш интерьер, расскажем о тканях и ценах — без навязывания и лишних вопросов.</p>
+            <a className="text-link" href="#lead-form">
+              Задать вопрос
             </a>
           </article>
 
           <article className="contact-card">
-            <span className="pill">География и время</span>
+            <span className="pill">Район работы</span>
             <h3>{contacts.serviceArea}</h3>
             <p>{contacts.workingHours}</p>
-            <p className="muted">Точный адрес не указываем, пока он не предоставлен для публикации.</p>
           </article>
         </div>
       </div>

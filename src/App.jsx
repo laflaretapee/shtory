@@ -33,7 +33,6 @@ export default function App() {
       <Header
         companyName={siteContent.companyName}
         navigation={siteContent.navigation}
-        contacts={siteContent.contacts}
       />
 
       <main className="page-shell">
@@ -51,7 +50,7 @@ export default function App() {
         <ReviewsSection items={siteContent.reviews} />
         <FaqSection items={siteContent.faq} />
         <SeoLocalSection data={siteContent.localSeo} />
-        <LeadFormSection contacts={siteContent.contacts} />
+        <LeadFormSection />
         <ContactsSection data={siteContent.contactsBlock} contacts={siteContent.contacts} />
       </main>
 

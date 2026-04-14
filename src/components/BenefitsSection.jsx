@@ -23,6 +23,11 @@ export function BenefitsSection({ items }) {
             </article>
           ))}
         </div>
+
+        <div className="benefits-cta">
+          <a className="button" href="#lead-form">Рассчитать стоимость</a>
+          <a className="button button-secondary" href="#catalog">Виды штор</a>
+        </div>
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-export function Header({ companyName, navigation, contacts }) {
+export function Header({ companyName, navigation }) {
   return (
     <header className="site-header">
       <div className="container header-inner">
@@ -16,11 +16,8 @@ export function Header({ companyName, navigation, contacts }) {
         </nav>
 
         <div className="header-actions">
-          <a className="header-phone" href={contacts.phoneHref}>
-            {contacts.phoneDisplay}
-          </a>
           <a className="button button-secondary" href="#contacts">
-            Получить консультацию
+            Консультация
           </a>
           <a className="button" href="#lead-form">
             Заказать замер

@@ -11,22 +11,23 @@ export function CatalogSection({ items, children }) {
           </p>
         </div>
 
-        <div className="cards-grid catalog-grid">
-          {items.map((item) => (
-            <article className="catalog-card" key={item.title}>
-              <div className="catalog-card-top">
-                <span className="pill">{item.title}</span>
-                <h3>{item.title}</h3>
-              </div>
-              <p>{item.description}</p>
-              <p className="muted">
-                <strong>Подходит для:</strong> {item.fit}
-              </p>
-              <a className="text-link" href="#lead-form">
-                Узнать стоимость
-              </a>
-            </article>
-          ))}
+        <div className="catalog-swipe-wrapper">
+          <div className="cards-grid catalog-grid">
+            {items.map((item) => (
+              <article className="catalog-card" key={item.title}>
+                <div className="catalog-card-top">
+                  <h3>{item.title}</h3>
+                </div>
+                <p>{item.description}</p>
+                <p className="muted">
+                  <strong>Подходит для:</strong> {item.fit}
+                </p>
+                <a className="text-link" href="#lead-form">
+                  Узнать стоимость →
+                </a>
+              </article>
+            ))}
+          </div>
         </div>
 
         {children}
