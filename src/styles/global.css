@@ -26,6 +26,11 @@
   box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -1089,15 +1094,26 @@ button {
   }
 
   .hero-section {
-    min-height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   .hero-copy {
-    padding: 26px;
+    padding: 22px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.75rem, 7vw, 2.65rem);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+
+  .hero-text {
+    font-size: 0.98rem;
   }
 
   .hero-inner {
-    padding: 122px 0 72px;
+    padding: 100px 0 24px;
   }
 
   .hero-trust,
@@ -1148,6 +1164,80 @@ button {
 
   .site-footer {
     padding-bottom: 136px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .hero-inner {
+    padding: 88px 0 20px;
+  }
+
+  .hero-copy {
+    padding: 18px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.55rem, 8vw, 1.9rem);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-trust {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-trust li {
+    min-height: 48px;
+    font-size: 0.88rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .button,
+  .hero-actions .button-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section-intro h2,
+  .promo-card h2 {
+    font-size: clamp(1.55rem, 6vw, 2rem);
+  }
+
+  .promo-card {
+    padding: 20px;
+  }
+
+  .promo-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pricing-card-head {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .info-card {
+    padding: 18px;
+  }
+
+  .faq-trigger {
+    padding: 16px 18px;
+    font-size: 0.95rem;
+  }
+
+  .faq-answer {
+    padding: 0 18px 16px;
+  }
+
+  .lead-form {
+    padding: 18px;
   }
 }
 
