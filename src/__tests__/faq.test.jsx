@@ -1,10 +1,15 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import App from '../App'
+import { MemoryRouter } from 'react-router-dom'
+import { AppShell } from '../App'
 
 test('expands faq answer on click', async () => {
   const user = userEvent.setup()
-  render(<App />)
+  render(
+    <MemoryRouter initialEntries={['/contacts']}>
+      <AppShell />
+    </MemoryRouter>,
+  )
 
   const trigger = screen.getByRole('button', {
     name: /сколько стоит заказать шторы в раевке/i,

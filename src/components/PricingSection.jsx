@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function PricingSection({ data }) {
   return (
     <section className="section section-contrast" id="pricing">
@@ -6,9 +8,9 @@ export function PricingSection({ data }) {
           <p className="eyebrow eyebrow-dark">Стоимость</p>
           <h2>{data.title}</h2>
           <p>{data.intro}</p>
-          <a className="button" href={data.cta.href}>
+          <Link className="button" to="/contacts">
             {data.cta.label}
-          </a>
+          </Link>
         </div>
 
         <div className="pricing-list">

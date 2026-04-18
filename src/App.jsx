@@ -1,26 +1,31 @@
+import { useEffect } from 'react'
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { TrustBar } from './components/TrustBar'
-import { BenefitsSection } from './components/BenefitsSection'
-import { CatalogSection } from './components/CatalogSection'
-import { ServicesSection } from './components/ServicesSection'
-import { WhyUsSection } from './components/WhyUsSection'
-import { StepsSection } from './components/StepsSection'
-import { PortfolioSection } from './components/PortfolioSection'
-import { PricingSection } from './components/PricingSection'
-import { PromoSection } from './components/PromoSection'
-import { ReviewsSection } from './components/ReviewsSection'
-import { FaqSection } from './components/FaqSection'
-import { SeoLocalSection } from './components/SeoLocalSection'
-import { LeadFormSection } from './components/LeadFormSection'
-import { ContactsSection } from './components/ContactsSection'
 import { Footer } from './components/Footer'
 import { MobileStickyActions } from './components/MobileStickyActions'
 import { SeoHead } from './components/SeoHead'
 import { StructuredData } from './components/StructuredData'
+import { HomePage } from './pages/HomePage'
+import { ServicesPage } from './pages/ServicesPage'
+import { PortfolioPage } from './pages/PortfolioPage'
+import { ContactsPage } from './pages/ContactsPage'
 import { siteContent } from './data/siteContent'
 
-export default function App() {
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    if (typeof window.scrollTo === 'function') {
+      try {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+      } catch {
+        /* jsdom may not implement scrollTo */
+      }
+    }
+  }, [pathname])
+  return null
+}
+
+export function AppShell() {
   return (
     <>
       <SeoHead seo={siteContent.seo} />
@@ -30,28 +35,21 @@ export default function App() {
         faq={siteContent.faq}
       />
 
+      <ScrollToTop />
+
       <Header
         companyName={siteContent.companyName}
         navigation={siteContent.navigation}
       />
 
       <main className="page-shell">
-        <Hero hero={siteContent.hero} />
-        <TrustBar items={siteContent.trustBar} />
-        <BenefitsSection items={siteContent.benefits} />
-        <CatalogSection items={siteContent.curtainTypes}>
-          <ServicesSection items={siteContent.services} />
-        </CatalogSection>
-        <WhyUsSection data={siteContent.whyUs} />
-        <StepsSection items={siteContent.steps} />
-        <PortfolioSection items={siteContent.portfolio} />
-        <PricingSection data={siteContent.pricing} />
-        <PromoSection data={siteContent.promo} />
-        <ReviewsSection items={siteContent.reviews} />
-        <FaqSection items={siteContent.faq} />
-        <SeoLocalSection data={siteContent.localSeo} />
-        <LeadFormSection />
-        <ContactsSection data={siteContent.contactsBlock} contacts={siteContent.contacts} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
       </main>
 
       <Footer
@@ -60,7 +58,15 @@ export default function App() {
         footer={siteContent.footer}
         contacts={siteContent.contacts}
       />
-      <MobileStickyActions contacts={siteContent.contacts} />
+      <MobileStickyActions />
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <HashRouter>
+      <AppShell />
+    </HashRouter>
   )
 }

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function Hero({ hero }) {
   const assetBase = import.meta.env.BASE_URL
 
@@ -25,12 +27,12 @@ export function Hero({ hero }) {
           <p className="hero-text">{hero.description}</p>
 
           <div className="hero-actions">
-            <a className="button" href={hero.primaryCta.href}>
+            <Link className="button" to={hero.primaryCta.to}>
               {hero.primaryCta.label}
-            </a>
-            <a className="button button-secondary button-light" href={hero.secondaryCta.href}>
+            </Link>
+            <Link className="button button-secondary button-light" to={hero.secondaryCta.to}>
               {hero.secondaryCta.label}
-            </a>
+            </Link>
           </div>
 
           <ul className="hero-trust" aria-label="Преимущества на первом экране">

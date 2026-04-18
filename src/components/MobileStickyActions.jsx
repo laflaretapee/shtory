@@ -1,12 +1,14 @@
-export function MobileStickyActions({ contacts }) {
+import { Link } from 'react-router-dom'
+
+export function MobileStickyActions() {
   return (
     <div className="mobile-sticky-actions">
-      <a className="button button-secondary" href={contacts.phoneHref}>
+      <Link className="button button-secondary" to="/contacts">
         Позвонить
-      </a>
-      <a className="button" href={contacts.whatsappHref}>
-        WhatsApp
-      </a>
+      </Link>
+      <Link className="button" to="/contacts">
+        Заявка
+      </Link>
     </div>
   )
 }

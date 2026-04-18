@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function PromoSection({ data }) {
   return (
     <section className="section promo-section" id="promo">
@@ -9,9 +11,9 @@ export function PromoSection({ data }) {
               <h2>{data.title}</h2>
               <p>{data.text}</p>
             </div>
-            <a className="button" href={data.cta.href}>
+            <Link className="button" to="/contacts">
               {data.cta.label}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function Footer({ companyName, navigation, footer, contacts }) {
   return (
     <footer className="site-footer">
@@ -12,8 +14,8 @@ export function Footer({ companyName, navigation, footer, contacts }) {
           <p className="eyebrow">Разделы</p>
           <ul className="footer-links">
             {navigation.map((item) => (
-              <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
+              <li key={item.to}>
+                <Link to={item.to}>{item.label}</Link>
               </li>
             ))}
           </ul>
@@ -23,13 +25,13 @@ export function Footer({ companyName, navigation, footer, contacts }) {
           <p className="eyebrow">Связь</p>
           <ul className="footer-links">
             <li>
-              <a href={contacts.phoneHref}>{contacts.phoneDisplay}</a>
+              <Link to="/contacts">{contacts.phoneDisplay}</Link>
             </li>
             <li>
-              <a href={contacts.whatsappHref}>WhatsApp</a>
+              <Link to="/contacts">WhatsApp</Link>
             </li>
             <li>
-              <a href={contacts.telegramHref}>Telegram</a>
+              <Link to="/contacts">Telegram</Link>
             </li>
           </ul>
         </div>

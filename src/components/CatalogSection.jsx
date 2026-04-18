@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function CatalogSection({ items, children }) {
   return (
     <section className="section section-contrast" id="catalog">
@@ -22,9 +24,9 @@ export function CatalogSection({ items, children }) {
                 <p className="muted">
                   <strong>Подходит для:</strong> {item.fit}
                 </p>
-                <a className="text-link" href="#lead-form">
+                <Link className="text-link" to="/contacts">
                   Узнать стоимость →
-                </a>
+                </Link>
               </article>
             ))}
           </div>

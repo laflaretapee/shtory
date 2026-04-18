@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { SectionIcon } from './Icons'
 
 export function BenefitsSection({ items }) {
@@ -25,8 +26,8 @@ export function BenefitsSection({ items }) {
         </div>
 
         <div className="benefits-cta">
-          <a className="button" href="#lead-form">Рассчитать стоимость</a>
-          <a className="button button-secondary" href="#catalog">Виды штор</a>
+          <Link className="button" to="/contacts">Рассчитать стоимость</Link>
+          <Link className="button button-secondary" to="/services">Виды штор</Link>
         </div>
       </div>
     </section>
