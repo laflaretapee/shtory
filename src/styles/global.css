@@ -699,6 +699,57 @@ button {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.materials-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.material-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(253, 250, 246, 0.92)),
+    radial-gradient(circle at top left, rgba(200, 169, 126, 0.12), transparent 48%);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.material-card-open {
+  border-color: rgba(200, 169, 126, 0.55);
+  box-shadow: 0 24px 56px rgba(79, 55, 34, 0.12);
+}
+
+.material-trigger {
+  width: 100%;
+  display: grid;
+  gap: 14px;
+  padding: 26px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  color: var(--text);
+}
+
+.material-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.52rem;
+  line-height: 1.1;
+}
+
+.material-summary {
+  color: var(--text-soft);
+  line-height: 1.68;
+}
+
+.material-body {
+  display: grid;
+  gap: 14px;
+  padding: 0 26px 26px;
+}
+
+.material-body p {
+  margin: 0;
+}
+
 .contact-message-card {
   grid-column: 1 / -1;
 }
@@ -1181,6 +1232,7 @@ button {
   .portfolio-grid,
   .reviews-grid,
   .contacts-grid,
+  .materials-grid,
   .services-grid,
   .metrics-grid,
   .trustbar-grid {
