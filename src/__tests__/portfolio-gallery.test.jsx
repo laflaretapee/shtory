@@ -12,8 +12,6 @@ test('portfolio page renders real images from the normalized media folder', () =
   const images = screen.getAllByRole('img')
 
   expect(images.length).toBeGreaterThanOrEqual(8)
-  expect(images[0]).toHaveAttribute(
-    'src',
-    expect.stringContaining('/media/portfolio/portfolio-'),
-  )
+  expect(images[0].getAttribute('src')).toContain('media/portfolio/portfolio-')
+  expect(images[0].getAttribute('src')).not.toMatch(/^\/media\//)
 })
