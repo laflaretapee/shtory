@@ -21,10 +21,15 @@ export function HomePage() {
             <p>Каталог, пошив, карнизы, установка и цены — в одном разделе.</p>
             <span className="text-link">Перейти →</span>
           </Link>
-          <Link className="home-next-card" to="/portfolio">
+          <Link className="home-next-card home-next-card-portfolio" to="/portfolio">
+            <img
+              alt={siteContent.portfolio[0].alt}
+              className="home-next-preview"
+              src={siteContent.portfolio[0].image}
+            />
             <span className="eyebrow eyebrow-dark">Наши работы</span>
-            <h3>Портфолио и отзывы</h3>
-            <p>Примеры оформления окон в Раевке и отзывы наших клиентов.</p>
+            <h3>Портфолио с реальными фото</h3>
+            <p>Посмотрите, как выглядят готовые решения с живой посадкой ткани и фактурой в интерьере.</p>
             <span className="text-link">Смотреть →</span>
           </Link>
           <Link className="home-next-card" to="/contacts">

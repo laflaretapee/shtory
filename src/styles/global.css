@@ -585,9 +585,21 @@ button {
   overflow: hidden;
 }
 
-.service-card-media,
-.portfolio-media {
+.service-card-media {
   min-height: 200px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), transparent 34%),
+    linear-gradient(135deg, rgba(200, 169, 126, 0.32), rgba(141, 110, 99, 0.18));
+}
+
+.portfolio-card {
+  overflow: hidden;
+}
+
+.portfolio-media {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
   background:
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), transparent 34%),
     linear-gradient(135deg, rgba(200, 169, 126, 0.32), rgba(141, 110, 99, 0.18));
@@ -1066,6 +1078,17 @@ button {
   box-shadow: var(--shadow-card);
   color: var(--text);
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.home-next-card-portfolio {
+  gap: 16px;
+}
+
+.home-next-preview {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 18px;
 }
 
 .home-next-card:hover {

@@ -14,13 +14,15 @@ export function PortfolioSection({ items }) {
         <div className="cards-grid portfolio-grid">
           {items.map((item) => (
             <article className="portfolio-card" key={item.title}>
-              <div className="portfolio-media" role="img" aria-label={item.alt} />
+              <img
+                alt={item.alt}
+                className="portfolio-media"
+                loading="lazy"
+                src={item.image}
+              />
               <div className="portfolio-body">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <p className="muted">
-                  <strong>Что сделали:</strong> {item.done}
-                </p>
                 <p className="muted">
                   <strong>Результат:</strong> {item.result}
                 </p>
