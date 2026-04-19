@@ -4,10 +4,10 @@ export function MobileStickyActions() {
   return (
     <div className="mobile-sticky-actions">
       <Link className="button button-secondary" to="/contacts">
-        Позвонить
+        WhatsApp
       </Link>
       <Link className="button" to="/contacts">
-        Заявка
+        Telegram и VK
       </Link>
     </div>
   )

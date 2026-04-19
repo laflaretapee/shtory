@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function ServicesSection({ items }) {
   return (
     <div className="services-subsection" id="services">
@@ -22,9 +24,9 @@ export function ServicesSection({ items }) {
       </div>
 
       <div className="inline-cta">
-        <a className="button" href="#lead-form">
-          Получить расчёт по вашему окну
-        </a>
+        <Link className="button" to="/contacts">
+          Открыть контакты для расчёта
+        </Link>
       </div>
     </div>
   )

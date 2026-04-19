@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function FaqSection({ items }) {
   const [openIndex, setOpenIndex] = useState(null)
@@ -48,9 +49,9 @@ export function FaqSection({ items }) {
             Напишите, какие шторы нужны: тюль, портьеры, римские или рулонные — и мы
             подскажем, с чего лучше начать.
           </p>
-          <a className="button" href="#lead-form">
-            Получить консультацию дизайнера
-          </a>
+          <Link className="button" to="/contacts">
+            Открыть контакты
+          </Link>
         </aside>
       </div>
     </section>

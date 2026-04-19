@@ -29,9 +29,9 @@ export function HomePage() {
           </Link>
           <Link className="home-next-card" to="/contacts">
             <span className="eyebrow eyebrow-dark">Связаться</span>
-            <h3>Замер и контакты</h3>
-            <p>Оставьте заявку на замер или задайте вопрос — ответим в течение дня.</p>
-            <span className="text-link">Оставить заявку →</span>
+            <h3>Мессенджеры и VK</h3>
+            <p>Скопируйте готовое сообщение и напишите удобным способом, когда будете готовы.</p>
+            <span className="text-link">Открыть контакты →</span>
           </Link>
         </div>
       </section>

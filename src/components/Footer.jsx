@@ -27,12 +27,11 @@ export function Footer({ companyName, navigation, footer, contacts }) {
             <li>
               <Link to="/contacts">{contacts.phoneDisplay}</Link>
             </li>
-            <li>
-              <Link to="/contacts">WhatsApp</Link>
-            </li>
-            <li>
-              <Link to="/contacts">Telegram</Link>
-            </li>
+            {contacts.channels.map((channel) => (
+              <li key={channel.id}>
+                <Link to="/contacts">{channel.label}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
