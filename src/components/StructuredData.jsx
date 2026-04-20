@@ -6,10 +6,10 @@ export function StructuredData({ companyName, seo, faq }) {
         '@type': 'LocalBusiness',
         name: companyName,
         description: seo.description,
-        areaServed: ['Раевка', 'Раевский', 'Альшеевский район', 'Республика Башкортостан'],
+        areaServed: ['Раевка', 'Альшеевский район', 'Республика Башкортостан'],
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Раевский',
+          addressLocality: 'Раевка',
           addressRegion: 'Республика Башкортостан',
           addressCountry: 'RU',
         },
@@ -22,7 +22,7 @@ export function StructuredData({ companyName, seo, faq }) {
           '@type': 'LocalBusiness',
           name: companyName,
         },
-        areaServed: ['Раевка', 'Раевский', 'Альшеевский район'],
+        areaServed: ['Раевка', 'Альшеевский район'],
         availableChannel: {
           '@type': 'ServiceChannel',
           serviceUrl: typeof window !== 'undefined' ? window.location.href : '',

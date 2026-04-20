@@ -3,11 +3,25 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 
 export function Header({ companyName, navigation }) {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
     setOpen(false)
   }, [location.pathname])
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 24)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -17,7 +31,7 @@ export function Header({ companyName, navigation }) {
   }, [open])
 
   return (
-    <header className="site-header">
+    <header className={scrolled ? 'site-header site-header-scrolled' : 'site-header'}>
       <div className="container header-inner">
         <Link className="brand" to="/" onClick={() => setOpen(false)}>
           <span className="brand-mark">atelier</span>
@@ -27,6 +41,7 @@ export function Header({ companyName, navigation }) {
         <nav
           className={`main-nav${open ? ' main-nav-open' : ''}`}
           aria-label="Основная навигация"
+          id="main-nav"
         >
           {navigation.map((item) => (
             <NavLink
@@ -50,7 +65,7 @@ export function Header({ companyName, navigation }) {
             aria-expanded={open}
             aria-controls="main-nav"
             aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOpen((value) => !value)}
           >
             <span aria-hidden="true" />
             <span aria-hidden="true" />

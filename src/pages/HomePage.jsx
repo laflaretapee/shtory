@@ -14,13 +14,14 @@ export function HomePage() {
       <BenefitsSection items={topBenefits} />
 
       <section className="section section-warm home-next">
-        <div className="container home-next-grid">
-          <Link className="home-next-card" to="/services">
+        <div className="container home-next-grid home-next-grid-premium">
+          <Link className="home-next-card home-next-card-compact" to="/services">
             <span className="eyebrow eyebrow-dark">Что мы делаем</span>
             <h3>Услуги и виды штор</h3>
-            <p>Каталог, пошив, карнизы, установка и цены — в одном разделе.</p>
+            <p>Компактный каталог решений, пошива, карнизов и установки без длинного скролла.</p>
             <span className="text-link">Перейти →</span>
           </Link>
+
           <Link className="home-next-card home-next-card-portfolio" to="/portfolio">
             <img
               alt={siteContent.portfolio[0].alt}
@@ -29,13 +30,17 @@ export function HomePage() {
             />
             <span className="eyebrow eyebrow-dark">Наши работы</span>
             <h3>Портфолио с реальными фото</h3>
-            <p>Посмотрите, как выглядят готовые решения с живой посадкой ткани и фактурой в интерьере.</p>
+            <p>
+              Сначала покажем несколько сильных примеров, а дальше можно открыть
+              больше живых фотографий из реальных проектов.
+            </p>
             <span className="text-link">Смотреть →</span>
           </Link>
-          <Link className="home-next-card" to="/contacts">
+
+          <Link className="home-next-card home-next-card-compact" to="/contacts">
             <span className="eyebrow eyebrow-dark">Связаться</span>
-            <h3>Мессенджеры и VK</h3>
-            <p>Скопируйте готовое сообщение и напишите удобным способом, когда будете готовы.</p>
+            <h3>Форма и быстрые каналы</h3>
+            <p>Оставьте короткий запрос или сразу перейдите к удобному способу связи.</p>
             <span className="text-link">Открыть контакты →</span>
           </Link>
         </div>

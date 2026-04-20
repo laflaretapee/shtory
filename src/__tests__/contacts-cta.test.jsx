@@ -17,7 +17,7 @@ beforeEach(() => {
   copyText.mockResolvedValue(true)
 })
 
-test('contacts page copies the ready message instead of showing the form', async () => {
+test('contacts page shows the new form layout and icon socials', async () => {
   const user = userEvent.setup()
 
   render(
@@ -26,23 +26,19 @@ test('contacts page copies the ready message instead of showing the form', async
     </MemoryRouter>,
   )
 
-  expect(
-    screen.queryByRole('textbox', { name: /имя/i }),
-  ).not.toBeInTheDocument()
+  expect(screen.getByRole('textbox', { name: /имя/i })).toBeInTheDocument()
+  expect(screen.getByRole('textbox', { name: /телефон/i })).toBeInTheDocument()
+  expect(screen.getByRole('textbox', { name: /сообщение/i })).toBeInTheDocument()
 
-  const whatsappButton = screen.getByRole('button', { name: /whatsapp/i })
+  const whatsappButton = screen.getAllByLabelText(/whatsapp/i)[0]
 
-  expect(
-    screen.getByRole('button', { name: /telegram/i }),
-  ).toBeInTheDocument()
-  expect(
-    screen.getByRole('button', { name: /^vk$/i }),
-  ).toBeInTheDocument()
+  expect(screen.getAllByLabelText(/telegram/i).length).toBeGreaterThan(0)
+  expect(screen.getAllByLabelText(/^vk$/i).length).toBeGreaterThan(0)
 
   await user.click(whatsappButton)
 
   expect(copyText).toHaveBeenCalledWith(
     'Здравствуйте! Хочу узнать стоимость штор и договориться о замере.',
   )
-  expect(screen.getByText(/текст скопирован/i)).toBeInTheDocument()
+  expect(screen.getByText(/текст для whatsapp скопирован/i)).toBeInTheDocument()
 })

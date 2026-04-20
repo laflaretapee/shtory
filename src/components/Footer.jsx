@@ -1,4 +1,11 @@
 import { Link } from 'react-router-dom'
+import { TelegramIcon, VKIcon, WhatsAppIcon } from './Icons'
+
+const iconMap = {
+  whatsapp: WhatsAppIcon,
+  telegram: TelegramIcon,
+  vk: VKIcon,
+}
 
 export function Footer({ companyName, navigation, footer, contacts }) {
   return (
@@ -23,15 +30,21 @@ export function Footer({ companyName, navigation, footer, contacts }) {
 
         <div>
           <p className="eyebrow">Связь</p>
-          <ul className="footer-links">
-            <li>
-              <Link to="/contacts">{contacts.phoneDisplay}</Link>
-            </li>
-            {contacts.channels.map((channel) => (
-              <li key={channel.id}>
-                <Link to="/contacts">{channel.label}</Link>
-              </li>
-            ))}
+          <p className="footer-phone">
+            <Link to="/contacts">{contacts.phoneDisplay}</Link>
+          </p>
+          <ul className="footer-socials" aria-label="Соцсети">
+            {contacts.channels.map((channel) => {
+              const Icon = iconMap[channel.id]
+
+              return (
+                <li key={channel.id}>
+                  <Link aria-label={channel.label} className="footer-social-link" to="/contacts">
+                    <Icon className="footer-social-icon" />
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
 
@@ -39,8 +52,8 @@ export function Footer({ companyName, navigation, footer, contacts }) {
           <p id="privacy">{footer.privacy}</p>
           <p id="consent">{footer.consent}</p>
           <small>
-            Содержимое блока контактов и юридические реквизиты заменяются на реальные
-            данные перед публикацией сайта.
+            Контактные данные и юридические реквизиты заменяются на реальные перед
+            публикацией сайта.
           </small>
         </div>
       </div>
