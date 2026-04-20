@@ -15,6 +15,7 @@ test('app loads branding overrides for the logo asset', () => {
   expect(css).toContain('.brand-mark,')
   expect(css).toContain('.brand-name {')
   expect(logoData).toContain("export const brandLogoDataUri = 'data:image/png;base64,")
+  expect(logoData).toContain('iVBOR')
 })
 
 test('index keeps a favicon link that runtime branding can replace', () => {
