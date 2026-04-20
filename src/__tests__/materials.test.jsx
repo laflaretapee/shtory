@@ -1,11 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { AppShell } from '../App'
 
-test('services page expands one materials card at a time', async () => {
-  const user = userEvent.setup()
-
+test('services page shows material cards with photos', () => {
   render(
     <MemoryRouter initialEntries={['/services']}>
       <AppShell />
@@ -16,23 +13,16 @@ test('services page expands one materials card at a time', async () => {
     screen.getByRole('heading', { level: 2, name: /материалы/i }),
   ).toBeInTheDocument()
 
-  const tulleButton = screen.getByRole('button', { name: /лёгкий тюль/i })
-  const blackoutButton = screen.getByRole('button', {
-    name: /блэкаут и затемняющие решения/i,
-  })
+  // All 6 material cards visible as static cards with images
+  expect(screen.getByText(/лёгкий тюль/i)).toBeInTheDocument()
+  expect(screen.getByText(/блэкаут и затемняющие решения/i)).toBeInTheDocument()
+  expect(screen.getByText(/плотные портьерные ткани/i)).toBeInTheDocument()
 
-  await user.click(tulleButton)
-
+  // Text content visible without needing to expand accordion
   expect(
     screen.getByText(/мягко рассеивает дневной свет и не перегружает окно/i),
-  ).toBeVisible()
-
-  await user.click(blackoutButton)
-
+  ).toBeInTheDocument()
   expect(
     screen.getByText(/помогает затемнить комнату и добавить ощущение камерности/i),
-  ).toBeVisible()
-  expect(
-    screen.queryByText(/мягко рассеивает дневной свет и не перегружает окно/i),
-  ).not.toBeInTheDocument()
+  ).toBeInTheDocument()
 })
