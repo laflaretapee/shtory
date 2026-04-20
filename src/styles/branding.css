@@ -1,0 +1,41 @@
+.brand {
+  position: relative;
+  display: inline-flex;
+  width: 148px;
+  height: 72px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--brand-logo-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.brand-mark,
+.brand-name {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 780px) {
+  .brand {
+    width: 116px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    width: 96px;
+    height: 46px;
+  }
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF7F2"/>
+      <stop offset="100%" stop-color="#F2E7D8"/>
+    </linearGradient>
+    <linearGradient id="curtain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D2B18A"/>
+      <stop offset="100%" stop-color="#B68C5A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="170" y="110" width="860" height="410" rx="36" fill="#FFFDF9" stroke="#E6DED3" stroke-width="4"/>
+  <rect x="300" y="160" width="600" height="320" rx="24" fill="#F6F0E8"/>
+  <path d="M250 140c55 95 120 140 190 140s135-45 190-140v360H250V140Z" fill="url(#curtain)" opacity="0.92"/>
+  <path d="M950 140c-55 95-120 140-190 140s-135-45-190-140v360H950V140Z" fill="url(#curtain)" opacity="0.82"/>
+  <text x="120" y="78" fill="#8D6E63" font-family="Inter, sans-serif" font-size="30" font-weight="700" letter-spacing="3">ШТОРЫ РАЕВКА</text>
+  <text x="120" y="575" fill="#2F2A26" font-family="'Playfair Display', serif" font-size="62" font-weight="700">Пошив, тюль и установка под ключ</text>
+</svg>
