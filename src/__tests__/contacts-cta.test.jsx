@@ -17,8 +17,15 @@ test('contacts page shows direct communication links without copy flow', () => {
     screen.getByText(/для связи выберите удобный вид связи/i),
   ).toBeInTheDocument()
   expect(
+    screen.getByText(/подберём удобный формат связи и обсудим детали заказа/i),
+  ).toBeInTheDocument()
+  expect(
     screen.queryByText(/готовое сообщение/i),
   ).not.toBeInTheDocument()
+  expect(screen.queryByText(/быстрый ответ/i)).not.toBeInTheDocument()
+  expect(screen.queryByText(/удобно для переписки/i)).not.toBeInTheDocument()
+  expect(screen.queryByText(/сообщество/i)).not.toBeInTheDocument()
+  expect(screen.queryByText(/география/i)).not.toBeInTheDocument()
 
   expect(
     screen
@@ -36,6 +43,6 @@ test('contacts page shows direct communication links without copy flow', () => {
       .some((link) => link.getAttribute('href') === '#'),
   ).toBe(true)
   expect(
-    screen.getByRole('link', { name: /8 \(927\) 083-79-79/i }),
-  ).toBeInTheDocument()
+    screen.getAllByRole('link', { name: /8 \(927\) 083-79-79/i }).length,
+  ).toBeGreaterThan(0)
 })

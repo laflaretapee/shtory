@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { brandLogoPath } from '../branding/logoData'
 
 export function Header({ companyName, navigation }) {
   const [open, setOpen] = useState(false)
@@ -20,7 +21,8 @@ export function Header({ companyName, navigation }) {
     <header className="site-header">
       <div className="container header-inner">
         <Link className="brand" to="/" onClick={() => setOpen(false)}>
-          <span className="brand-mark">logo</span>
+          <img alt={`Логотип ${companyName}`} className="brand-logo" src={brandLogoPath} />
+          <span className="brand-mark">{companyName}</span>
           <span className="brand-name">{companyName}</span>
         </Link>
 

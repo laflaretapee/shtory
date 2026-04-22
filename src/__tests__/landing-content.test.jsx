@@ -39,7 +39,10 @@ test('home page reflects the nationwide branding update', () => {
   expect(
     screen.getByRole('heading', { level: 1, name: /шторы на заказ по всей россии/i }),
   ).toBeInTheDocument()
-  expect(screen.getAllByText(/тренд штор/i).length).toBeGreaterThan(0)
+  expect(screen.getAllByAltText(/логотип тренд штор/i).length).toBeGreaterThan(0)
+  expect(
+    screen.queryByRole('heading', { level: 2, name: /тренд штор/i }),
+  ).not.toBeInTheDocument()
   expect(screen.getAllByText(/8 \(927\) 083-79-79/i).length).toBeGreaterThan(0)
   expect(screen.queryByText(/раевк/i)).not.toBeInTheDocument()
 })

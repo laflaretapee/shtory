@@ -26,10 +26,24 @@
   border: 0;
 }
 
+.site-header .brand {
+  width: auto;
+  height: auto;
+  background-image: none;
+}
+
+.site-header .brand-logo {
+  width: 148px;
+}
+
 @media (max-width: 780px) {
   .brand {
     width: 116px;
     height: 56px;
+  }
+
+  .site-header .brand-logo {
+    width: 116px;
   }
 }
 
@@ -37,5 +51,9 @@
   .brand {
     width: 96px;
     height: 46px;
+  }
+
+  .site-header .brand-logo {
+    width: 96px;
   }
 }

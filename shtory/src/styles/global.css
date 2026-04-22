@@ -371,8 +371,14 @@ button {
 
 .brand {
   display: inline-flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.brand-logo {
+  display: block;
+  width: 148px;
+  height: auto;
 }
 
 .brand-mark {
@@ -711,6 +717,44 @@ button {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.contacts-panel {
+  display: grid;
+  gap: 20px;
+  padding: 28px;
+  border: 1px solid rgba(230, 222, 211, 0.82);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(253, 250, 246, 0.92)),
+    radial-gradient(circle at top left, rgba(200, 169, 126, 0.12), transparent 48%);
+  box-shadow: var(--shadow-card);
+}
+
+.contacts-panel-top {
+  display: grid;
+  gap: 16px;
+}
+
+.contacts-panel-meta {
+  display: grid;
+  gap: 8px;
+  color: var(--text-soft);
+}
+
+.contacts-panel-meta p {
+  margin: 0;
+}
+
+.contacts-phone-link {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.contacts-phone-link:hover {
+  color: var(--accent-deep);
+}
+
 .materials-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -1035,16 +1079,15 @@ button {
   list-style: none;
 }
 
-.footer-brand-lockup {
+.footer-brand-stack {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px;
+  gap: 18px;
   align-items: start;
 }
 
 .footer-logo {
-  width: 88px;
-  height: 88px;
+  width: 104px;
+  height: auto;
   object-fit: contain;
 }
 
@@ -1248,6 +1291,10 @@ button {
     gap: 14px;
   }
 
+  .brand-logo {
+    width: 116px;
+  }
+
   .main-nav {
     display: none;
     position: fixed;
@@ -1293,6 +1340,10 @@ button {
 
   .header-phone {
     display: none;
+  }
+
+  .contacts-panel {
+    padding: 24px;
   }
 
   .hero-section {
@@ -1367,6 +1418,12 @@ button {
 
   .site-footer {
     padding-bottom: 136px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo {
+    width: 96px;
   }
 }
 

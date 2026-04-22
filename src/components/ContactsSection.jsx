@@ -10,10 +10,9 @@ export function ContactsSection({ data, contacts }) {
           <p>{data.text}</p>
         </div>
 
-        <div className="cards-grid contacts-grid">
-          <article className="contact-card contact-hub-card">
+        <div className="contacts-panel">
+          <div className="contacts-panel-top">
             <span className="pill">Для связи</span>
-            <h3>Выберите удобный канал</h3>
             <div className="contact-channel-row">
               {contacts.channels.map((channel) => (
                 <a
@@ -26,40 +25,16 @@ export function ContactsSection({ data, contacts }) {
                 </a>
               ))}
             </div>
-          </article>
+          </div>
 
-          {contacts.channels.map((channel) => (
-            <article className="contact-card" key={channel.id}>
-              <span className="pill">{channel.badge}</span>
-              <h3>{channel.title}</h3>
-              <p>{channel.description}</p>
-              <a
-                className={channel.tone === 'accent' ? 'button' : 'button button-secondary'}
-                href={channel.href}
-              >
-                {channel.label}
-              </a>
-            </article>
-          ))}
-
-          <article className="contact-card">
-            <span className="pill">Телефон</span>
-            <h3>{contacts.phoneDisplay}</h3>
-            <div className="contact-meta">
-              <a className="text-link" href={contacts.phoneHref}>
-                Позвонить →
-              </a>
-            </div>
-          </article>
-
-          <article className="contact-card">
-            <span className="pill">География</span>
-            <h3>{contacts.serviceArea}</h3>
-            <div className="contact-meta">
-              <p>{contacts.workingHours}</p>
-              <p>Подберём удобный формат связи и обсудим детали заказа.</p>
-            </div>
-          </article>
+          <div className="contacts-panel-meta">
+            <a className="contacts-phone-link" href={contacts.phoneHref}>
+              {contacts.phoneDisplay}
+            </a>
+            <p>{contacts.serviceArea}</p>
+            <p>{contacts.workingHours}</p>
+            <p>Подберём удобный формат связи и обсудим детали заказа.</p>
+          </div>
         </div>
       </div>
     </section>

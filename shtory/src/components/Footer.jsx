@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export function Footer({ companyName, navigation, footer, contacts }) {
+export function Footer({ navigation, footer, contacts }) {
   const assetBase = import.meta.env.BASE_URL
 
   return (
@@ -8,12 +8,9 @@ export function Footer({ companyName, navigation, footer, contacts }) {
       <div className="container footer-grid">
         <div>
           <p className="eyebrow">О компании</p>
-          <div className="footer-brand-lockup">
+          <div className="footer-brand-stack">
             <img alt={footer.logoAlt} className="footer-logo" src={`${assetBase}${footer.logo}`} />
-            <div>
-              <h2>{companyName}</h2>
-              <p>{footer.description}</p>
-            </div>
+            <p>{footer.description}</p>
           </div>
         </div>
 
