@@ -592,7 +592,10 @@ button {
 }
 
 .service-card-media {
+  width: 100%;
   min-height: 200px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   background:
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), transparent 34%),
     linear-gradient(135deg, rgba(200, 169, 126, 0.32), rgba(141, 110, 99, 0.18));

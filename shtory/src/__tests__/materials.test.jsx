@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { AppShell } from '../App'
 
@@ -24,4 +23,17 @@ test('services page expands one materials card at a time', async () => {
   expect(
     screen.getByRole('img', { name: /блэкаут и затемняющие решения/i }),
   ).toBeInTheDocument()
+
+  expect(
+    screen.getByRole('img', { name: /выезд и замер/i }).getAttribute('src'),
+  ).toContain('/media/services/1.webp')
+  expect(
+    screen.getByRole('img', { name: /комплексное оформление окна/i }).getAttribute('src'),
+  ).toContain('/media/services/6.webp')
+  expect(
+    screen.getByRole('img', { name: /лёгкий тюль/i }).getAttribute('src'),
+  ).toContain('/media/materials/7.webp')
+  expect(
+    screen.getByRole('img', { name: /практичные ткани для кухни и детской/i }).getAttribute('src'),
+  ).toContain('/media/materials/12.webp')
 })
