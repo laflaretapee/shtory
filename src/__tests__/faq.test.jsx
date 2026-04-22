@@ -12,7 +12,7 @@ test('expands faq answer on click', async () => {
   )
 
   const trigger = screen.getByRole('button', {
-    name: /сколько стоит заказать шторы в раевке/i,
+    name: /сколько стоят шторы на заказ/i,
   })
 
   await user.click(trigger)

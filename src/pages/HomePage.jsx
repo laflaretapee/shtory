@@ -16,12 +16,17 @@ export function HomePage() {
       <section className="section section-warm home-next">
         <div className="container home-next-grid">
           <Link className="home-next-card" to="/services">
+            <img
+              alt={siteContent.portfolio[1].alt}
+              className="home-next-preview"
+              src={siteContent.portfolio[1].image}
+            />
             <span className="eyebrow eyebrow-dark">Что мы делаем</span>
             <h3>Услуги и виды штор</h3>
-            <p>Каталог, пошив, карнизы, установка и цены — в одном разделе.</p>
+            <p>Каталог, пошив, карнизы, установка и цены в одном разделе.</p>
             <span className="text-link">Перейти →</span>
           </Link>
-          <Link className="home-next-card home-next-card-portfolio" to="/portfolio">
+          <Link className="home-next-card" to="/portfolio">
             <img
               alt={siteContent.portfolio[0].alt}
               className="home-next-preview"
@@ -29,13 +34,18 @@ export function HomePage() {
             />
             <span className="eyebrow eyebrow-dark">Наши работы</span>
             <h3>Портфолио с реальными фото</h3>
-            <p>Посмотрите, как выглядят готовые решения с живой посадкой ткани и фактурой в интерьере.</p>
+            <p>Посмотрите, как выглядят готовые решения с живой посадкой ткани.</p>
             <span className="text-link">Смотреть →</span>
           </Link>
           <Link className="home-next-card" to="/contacts">
+            <img
+              alt={siteContent.portfolio[2].alt}
+              className="home-next-preview"
+              src={siteContent.portfolio[2].image}
+            />
             <span className="eyebrow eyebrow-dark">Связаться</span>
-            <h3>Мессенджеры и VK</h3>
-            <p>Скопируйте готовое сообщение и напишите удобным способом, когда будете готовы.</p>
+            <h3>Связаться удобно</h3>
+            <p>Позвоните или напишите удобным способом, а мы подскажем следующий шаг.</p>
             <span className="text-link">Открыть контакты →</span>
           </Link>
         </div>

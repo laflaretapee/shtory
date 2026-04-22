@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
+import { siteContent } from '../data/siteContent'
 
 export function MobileStickyActions() {
   return (
     <div className="mobile-sticky-actions">
-      <Link className="button button-secondary" to="/contacts">
-        WhatsApp
-      </Link>
+      <a className="button button-secondary" href={siteContent.contacts.phoneHref}>
+        Позвонить
+      </a>
       <Link className="button" to="/contacts">
-        Telegram и VK
+        Контакты
       </Link>
     </div>
   )

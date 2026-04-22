@@ -1,8 +1,6 @@
-import { useContactCopy } from '../hooks/useContactCopy'
+import { ChannelIcon } from './Icons'
 
 export function ContactsSection({ data, contacts }) {
-  const { copiedLabel, copy } = useContactCopy(contacts.readyMessage)
-
   return (
     <section className="section section-contrast" id="contacts">
       <div className="container contacts-layout">
@@ -13,23 +11,21 @@ export function ContactsSection({ data, contacts }) {
         </div>
 
         <div className="cards-grid contacts-grid">
-          <article className="contact-card contact-message-card">
-            <span className="pill">Готовое сообщение</span>
-            <h3>Скопируйте текст и отправьте его в удобный канал</h3>
-            <p>
-              Так проще начать разговор: не нужно думать, что написать в первый раз,
-              и можно сразу перейти к сути запроса.
-            </p>
-
-            <div className="contact-message-box">
-              <p>{contacts.readyMessage}</p>
+          <article className="contact-card contact-hub-card">
+            <span className="pill">Для связи</span>
+            <h3>Выберите удобный канал</h3>
+            <div className="contact-channel-row">
+              {contacts.channels.map((channel) => (
+                <a
+                  className={`contact-channel-link${channel.tone === 'accent' ? ' contact-channel-link-accent' : ''}`}
+                  href={channel.href}
+                  key={channel.id}
+                >
+                  <ChannelIcon name={channel.icon} />
+                  <span>{channel.label}</span>
+                </a>
+              ))}
             </div>
-
-            <p className="contact-status" role="status">
-              {copiedLabel
-                ? `Текст скопирован для ${copiedLabel}. Можно вставить его в сообщение.`
-                : contacts.channelStatus}
-            </p>
           </article>
 
           {contacts.channels.map((channel) => (
@@ -37,22 +33,31 @@ export function ContactsSection({ data, contacts }) {
               <span className="pill">{channel.badge}</span>
               <h3>{channel.title}</h3>
               <p>{channel.description}</p>
-              <button
+              <a
                 className={channel.tone === 'accent' ? 'button' : 'button button-secondary'}
-                type="button"
-                onClick={() => copy(channel.label)}
+                href={channel.href}
               >
                 {channel.label}
-              </button>
+              </a>
             </article>
           ))}
 
           <article className="contact-card">
-            <span className="pill">Район работы</span>
+            <span className="pill">Телефон</span>
+            <h3>{contacts.phoneDisplay}</h3>
+            <div className="contact-meta">
+              <a className="text-link" href={contacts.phoneHref}>
+                Позвонить →
+              </a>
+            </div>
+          </article>
+
+          <article className="contact-card">
+            <span className="pill">География</span>
             <h3>{contacts.serviceArea}</h3>
             <div className="contact-meta">
               <p>{contacts.workingHours}</p>
-              <p>{data.text}</p>
+              <p>Подберём удобный формат связи и обсудим детали заказа.</p>
             </div>
           </article>
         </div>

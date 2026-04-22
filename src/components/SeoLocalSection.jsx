@@ -3,7 +3,7 @@ export function SeoLocalSection({ data }) {
     <section className="section" id="seo-local">
       <div className="container seo-local">
         <div className="section-intro section-intro-compact">
-          <p className="eyebrow eyebrow-dark">Локально и по делу</p>
+          <p className="eyebrow eyebrow-dark">По всей России</p>
           <h2>{data.title}</h2>
         </div>
 

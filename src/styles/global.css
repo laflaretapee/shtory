@@ -790,30 +790,50 @@ button {
   margin-top: 32px;
 }
 
-.contact-message-card {
+.contact-hub-card {
   grid-column: 1 / -1;
 }
 
-.contact-message-box {
-  padding: 18px 20px;
-  border: 1px solid rgba(200, 169, 126, 0.35);
-  border-radius: 20px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(253, 250, 246, 0.95)),
-    radial-gradient(circle at top left, rgba(200, 169, 126, 0.14), transparent 42%);
+.contact-channel-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
 }
 
-.contact-message-box p {
-  margin: 0;
+.contact-channel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid rgba(200, 169, 126, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
   color: var(--text);
-  font-size: 1.02rem;
-  line-height: 1.7;
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
 }
 
-.contact-status {
-  margin: 0;
-  color: var(--accent-deep);
-  font-weight: 600;
+.contact-channel-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(200, 169, 126, 0.55);
+  box-shadow: 0 16px 30px rgba(70, 51, 33, 0.08);
+}
+
+.contact-channel-link-accent {
+  background: linear-gradient(145deg, rgba(200, 169, 126, 0.18), rgba(255, 255, 255, 0.96));
+}
+
+.channel-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.channel-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .contact-meta {
@@ -1015,14 +1035,39 @@ button {
   list-style: none;
 }
 
-.legal-box {
+.footer-brand-lockup {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.footer-logo {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+}
+
+.footer-developer {
   display: grid;
   gap: 10px;
 }
 
-.legal-box p,
-.legal-box small {
-  margin: 0;
+.footer-developer-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 58px;
+}
+
+.footer-developer-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 152px;
+  min-height: 58px;
+  padding: 0 18px;
+  border: 1px dashed rgba(200, 169, 126, 0.52);
+  border-radius: 18px;
   color: var(--text-soft);
 }
 
@@ -1098,8 +1143,8 @@ button {
 .home-next-card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 28px;
+  gap: 8px;
+  padding: 22px;
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
   background: rgba(255, 255, 255, 0.92);
@@ -1108,15 +1153,11 @@ button {
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 
-.home-next-card-portfolio {
-  gap: 16px;
-}
-
 .home-next-preview {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 5 / 3.2;
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 16px;
 }
 
 .home-next-card:hover {
@@ -1128,7 +1169,7 @@ button {
 .home-next-card h3 {
   margin: 6px 0 2px;
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.4rem;
+  font-size: 1.24rem;
   line-height: 1.15;
 }
 

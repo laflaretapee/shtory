@@ -7,7 +7,7 @@ test('renders the main landing headline and primary CTA', () => {
   expect(
     screen.getByRole('heading', {
       level: 1,
-      name: /шторы на заказ в раевке и раевском/i,
+      name: /шторы на заказ по всей россии/i,
     }),
   ).toBeInTheDocument()
 
