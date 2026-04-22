@@ -20,7 +20,7 @@ export function Header({ companyName, navigation }) {
     <header className="site-header">
       <div className="container header-inner">
         <Link className="brand" to="/" onClick={() => setOpen(false)}>
-          <span className="brand-mark">atelier</span>
+          <span className="brand-mark">logo</span>
           <span className="brand-name">{companyName}</span>
         </Link>
 

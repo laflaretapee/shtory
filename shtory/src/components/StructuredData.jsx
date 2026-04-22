@@ -3,26 +3,21 @@ export function StructuredData({ companyName, seo, faq }) {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'LocalBusiness',
+        '@type': 'ProfessionalService',
         name: companyName,
         description: seo.description,
-        areaServed: ['Раевка', 'Раевский', 'Альшеевский район', 'Республика Башкортостан'],
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Раевский',
-          addressRegion: 'Республика Башкортостан',
-          addressCountry: 'RU',
-        },
+        areaServed: ['Россия'],
+        telephone: '+79270837979',
       },
       {
         '@type': 'Service',
-        name: 'Пошив и установка штор в Раевке',
+        name: 'Пошив и установка штор по всей России',
         serviceType: 'Шторы на заказ, тюль, портьеры, римские и рулонные шторы',
         provider: {
-          '@type': 'LocalBusiness',
+          '@type': 'ProfessionalService',
           name: companyName,
         },
-        areaServed: ['Раевка', 'Раевский', 'Альшеевский район'],
+        areaServed: ['Россия'],
         availableChannel: {
           '@type': 'ServiceChannel',
           serviceUrl: typeof window !== 'undefined' ? window.location.href : '',

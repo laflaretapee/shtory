@@ -1,25 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import { beforeEach, test, expect, vi } from 'vitest'
 import { AppShell } from '../App'
 
-const { copyText } = vi.hoisted(() => ({
-  copyText: vi.fn(),
-}))
-
-vi.mock('../utils/copyText', () => ({
-  copyText,
-}))
-
-beforeEach(() => {
-  copyText.mockReset()
-  copyText.mockResolvedValue(true)
-})
-
-test('contacts page copies the ready message instead of showing the form', async () => {
-  const user = userEvent.setup()
-
+test('contacts page shows direct communication links without copy flow', () => {
   render(
     <MemoryRouter initialEntries={['/contacts']}>
       <AppShell />
@@ -30,19 +13,29 @@ test('contacts page copies the ready message instead of showing the form', async
     screen.queryByRole('textbox', { name: /имя/i }),
   ).not.toBeInTheDocument()
 
-  const whatsappButton = screen.getByRole('button', { name: /whatsapp/i })
-
   expect(
-    screen.getByRole('button', { name: /telegram/i }),
+    screen.getByText(/для связи выберите удобный вид связи/i),
   ).toBeInTheDocument()
   expect(
-    screen.getByRole('button', { name: /^vk$/i }),
+    screen.queryByText(/готовое сообщение/i),
+  ).not.toBeInTheDocument()
+
+  expect(
+    screen
+      .getAllByRole('link', { name: /whatsapp/i })
+      .some((link) => link.getAttribute('href') === 'https://wa.me/79270837979'),
+  ).toBe(true)
+  expect(
+    screen
+      .getAllByRole('link', { name: /telegram/i })
+      .some((link) => link.getAttribute('href') === '#'),
+  ).toBe(true)
+  expect(
+    screen
+      .getAllByRole('link', { name: /^vk$/i })
+      .some((link) => link.getAttribute('href') === '#'),
+  ).toBe(true)
+  expect(
+    screen.getByRole('link', { name: /8 \(927\) 083-79-79/i }),
   ).toBeInTheDocument()
-
-  await user.click(whatsappButton)
-
-  expect(copyText).toHaveBeenCalledWith(
-    'Здравствуйте! Хочу узнать стоимость штор и договориться о замере.',
-  )
-  expect(screen.getByText(/текст скопирован/i)).toBeInTheDocument()
 })
