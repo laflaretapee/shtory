@@ -930,6 +930,61 @@ button {
   gap: 18px;
 }
 
+.reviews-carousel {
+  display: grid;
+  gap: 18px;
+}
+
+.reviews-carousel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.reviews-position {
+  margin: 0;
+  color: var(--accent-deep);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reviews-controls {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.reviews-control {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(230, 222, 211, 0.8);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--accent-deep);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.reviews-control:hover {
+  background: rgba(200, 169, 126, 0.14);
+}
+
+.reviews-viewport {
+  overflow: hidden;
+}
+
+.reviews-track {
+  display: flex;
+  transition: transform 420ms ease;
+  will-change: transform;
+}
+
+.reviews-slide {
+  flex: 0 0 100%;
+  min-height: 320px;
+}
+
 .review-text {
   margin: 0;
   font-size: 1rem;
@@ -1376,13 +1431,26 @@ button {
   .benefits-grid,
   .steps-grid,
   .portfolio-grid,
-  .reviews-grid,
   .contacts-grid,
   .materials-grid,
   .services-grid,
   .metrics-grid,
   .trustbar-grid {
     grid-template-columns: 1fr;
+  }
+
+  .reviews-carousel-top {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .reviews-controls {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .reviews-slide {
+    min-height: auto;
   }
 
   /* Каталог — горизонтальный свайп на mobile */
